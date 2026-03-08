@@ -311,6 +311,13 @@ async function searchIssue(){
 
 const text = document.getElementById("searchInput").value
 
+if (text ==""){
+
+    document.getElementById("showtext").innerHTML = `<h2> Please write search box what you wanted</h2>`
+}else{
+    document.getElementById("showtext").innerHTML = ""
+}
+
 const res = await fetch(
 `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${text}`
 )
