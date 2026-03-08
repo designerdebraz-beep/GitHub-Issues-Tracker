@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+
+<nav class="flex justify-between items-center p-4 bg-white shadow">
+
+    <div class="flex items-center gap-3 md:flex md:text-sm">
+        <img src="assets/github-logo.png" class="w-[60px]" alt="">
+        <h2 class="text-xl font-bold">GitHub Issues Tracker</h2>
+    </div>
+
+
+<div class="gap-2 md:flex ">
+
+<input id="searchInput"
+type="text"
+placeholder="Search issues..."
+class="border p-2 rounded"
+/>
+
+<button onclick="searchIssue()"
+class="bg-[#4A00FF] text-white px-4 py-2 rounded md:">
++ New Issue
+</button>
+
+</div>
+
+</nav>
+<!-- tab open and closed -->
+ <div class="bg-white p-4 rounded-lg shadow flex justify-between items-center mb-6">
+
+    <!-- LEFT SIDE -->
+    <div class="flex items-center gap-3">
+        <div class="bg-purple-100 p-2 rounded-full">
+            <span class="text-purple-600 text-xl"><img src="assets/Aperture.png" alt="" srcset=""></span>
+        </div>
+
+        <div>
+            <h2 class="text-lg font-semibold">
+                <span id="issueCount">50</span> Issues
+            </h2>
+
+            <p class="text-gray-500 text-sm">
+                Track and manage your project issues
+            </p>
+        </div>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="flex gap-6 text-sm items-center">
+
+        <div class="flex items-center gap-2">
+            <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+            <span>Open</span>
+            <span id="openCount" class="font-semibold"></span>
+        </div>
+
+        <div class="flex items-center gap-2">
+            <span class="w-3 h-3 bg-purple-500 rounded-full"></span>
+            <span>Closed</span>
+            <span id="closeCount" class="font-semibold"></span>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="p-6">
+
+<div class="flex gap-4 mb-6">
+
+<button onclick="loadIssues('all')" id='all' class="tab-btn bg-blue-600 text-white px-4 py-2 rounded">
+All
+</button>
+
+<button onclick="loadIssues('open')" id='open' class="tab-btn border px-4 py-2 rounded">
+Open
+</button>
+
+<button onclick="loadIssues('closed')"  id='closed' class="tab-btn border px-4 py-2 rounded">
+Closed
+</button>
+
+</div>
+
+<div id="issuesContainer"
+class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+</div>
+
+</div>
+<!-- modal add -->
+ <div id="modal"
+class="hidden fixed inset-0 bg-blue-100 opacity-95 flex items-center justify-center speace-y-6 ">
+
+<div class="bg-white model-box p-6 rounded w-96 ">
+
+<h2 id="modalTitle" class="text-xl font-bold p-3"></h2>
+<button id="opened" class="btn btn-active btn-success text-white rounded-full py-2"></button>
+<span id="openby"></span>
+<span>by</span>
+<span id="name"></span>
+<span>&bull;</span>
+<span id="date"></span>
+<p id="label" class=" py-2"></p>
+
+<p id="modalDesc" class="mt-2 text-[#64748B] py-2"></p>
+<div class="flex speace-y-4 justify-between bg-gray-100 px-3 py-2">
+    <div>
+        <p class="text-[#64748B]">Assignee</p>
+        <p class="text-[#64748B] font-semibold text-xl" id="assignee"></p>
+    </div>
+    <div>
+        <p class="font-bold">Priority:</p>
+        <p id="high" class="bg-red-400 py-2 px-3 rounded text-white uppercase"></p>
+    </div>
+</div>
+
+<div class="w-full ms-65">
+    <button onclick="closeModal()"
+class="mt-4 bg-blue-600 text-white px-4 py-2 rounded ">
+Close
+</button>
+</div>
+
+</div>
+
+</div>
+
+<!-- The button to open modal -->
+<!-- Open the modal using ID.showModal() method -->
+<!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
+
+
+<!-- Loading spiner -->
+
+
+<div id="spinner" class="hidden text-center py-6">
+    <span class="loading loading-bars loading-xs"></span>
+<span class="loading loading-bars loading-sm"></span>
+<span class="loading loading-bars loading-md"></span>
+<span class="loading loading-bars loading-lg"></span>
+<span class="loading loading-bars loading-xl"></span>
+   
+</div>
+<!-- <div class="flex justify-between">
+    <div >
+        <img src="assets/Closed- Status .png" alt="" srcset="">
+    </div>
+    <div>
+        <p class="bg-red-400 rounded uppercase"> ${issue.priority}</p>
+    </div>
+
+</div> -->
+
+<script src="js/issues.js"></script>
+</body>
+</html>
