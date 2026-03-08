@@ -214,7 +214,7 @@ class="bg-white p-4 rounded shadow border-t-4 ${borderColor}">
     </div>
 </div>
 
-<h3 class="font-bold mb-2 mt-3">
+<h3 class="font-bold text-xl mb-2 mt-3">
 ${issue.title}
 </h3>
 
