@@ -228,7 +228,7 @@ ${labelsHTML || "No labels"}
 
 
 
-<div class="text-sm text-gray-400">
+<div class="text-sm py-2 text-gray-400">
 #${issue.id} by ${issue.author}
 </div>
 <div class="text-sm text-gray-400">
